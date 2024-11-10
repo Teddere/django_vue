@@ -1,0 +1,160 @@
+@import 'variables';
+@import "functions";
+* {
+  box-sizing: border-box;
+}
+
+html,body,section,div,span,iframe,h1,h2,h3,h4,h5,h6,p,
+img,pre,b,strong,small,sup,sub,figure,nav,main,header,
+nav,article,aside,footer{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+html,body {
+  font-family: $font-family;
+  font-size: map_sizes();
+  font-weight: 400;
+  background-color: map_colors('white');
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+header,nav,section, article,footer,main {
+  display: block;
+}
+ul,ol,li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+a {
+  font-weight: 400;
+  text-decoration: none;
+}
+p {
+  font-size: map_sizes('sm');
+  line-height: 25px;
+  color: map_colors('dark');
+}
+/*---------------------------------------------------------------------------------
+                          Global style
+----------------------------------------------------------------------------------*/
+*::selection {
+  background: map_colors('primary');
+  color: map_colors();
+}
+:root,
+[data-bs-theme=light] {
+  --bs-primary:map_colors('primary');
+  --bs-primary-rgb: map_colors_rgb('primary');
+}
+/*---------------------------------------------------------------------------------
+                          Global logo
+----------------------------------------------------------------------------------*/
+
+.logo {
+  font-family: $font-heading;
+  line-height: 1;
+  font-style: italic;
+  font-size: map_sizes('xl');
+  user-select: none;
+  cursor: pointer;
+  .icon {
+    font-weight: 700;
+    color: map_colors('primary');
+    margin-right: map_sizes('xxs');
+  }
+  .text-logo {
+    font-size: calc(#{map_sizes()} + .5rem);
+    font-weight: 700;
+    #color: map_colors();
+    span {
+      color: map_colors('primary');
+    }
+  }
+  @media (max-width: 300px) {
+    font-size: map_sizes('lg');
+  }
+}
+
+/*---------------------------------------------------------------------------------
+                          Subheader title
+----------------------------------------------------------------------------------*/
+.section-title {
+  margin-bottom: map_sizes('lx-1');
+  text-align: center;
+  span {
+    font-size: map_sizes();
+    color: map_colors('primary');
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  h2 {
+    color: map_colors();
+    font-size: map_sizes('xxl');
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: map_sizes('xxs');
+  }
+}
+
+/*---------------------------------------------------------------------------------
+                          Button standard
+----------------------------------------------------------------------------------*/
+.button-primary {
+  color: scale-color(map_colors('white'),$alpha: -10%);
+  background: map_colors('primary');
+  &:hover {
+    color: map_colors();
+    background: map_colors('primary_hover');
+  }
+}
+/*---------------------------------------------------------------------------------
+                          Headline page standard
+----------------------------------------------------------------------------------*/
+.page-headline {
+  position: relative;
+  background-image: linear-gradient(162deg,rgba(91,64,27,.4),rgba(132,77,0,.8),rgba(44,26,0,.89)),url('@/assets/bg-s1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: scroll;
+  padding: calc(8rem - 50px);
+  .headline {
+    text-align: center;
+    h1 {
+      font-family: $font-heading;
+      font-size: calc(#{map_sizes()} + 2rem);
+      color: map_colors();
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .headline-navigate {
+      margin-top: calc(#{map_sizes('xxs')} + 2px);
+      a {
+        display: inline-block;
+        color: map_colors();
+        font-weight: 700;
+        position: relative;
+        margin-right: calc(#{map_sizes()} + 4px);
+        &::after {
+          content:'>';
+          position: absolute;
+          right: -14px;
+          top: 6px;
+          font-size: calc(#{map_sizes()} - 3px);
+          font-weight: 400;
+        }
+      }
+      span {
+        font-size: calc(#{map_sizes()} + 2px);
+        font-weight: 700;
+        color: map_colors('primary');
+      }
+    }
+  }
+}

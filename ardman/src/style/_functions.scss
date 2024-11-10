@@ -1,0 +1,13 @@
+@function map_colors($value:'white'){
+  @return map-get($colors,$value);
+}
+
+@function map_colors_rgb($value:'primary') {
+  @return map_colors_rgb($colors_rgb,$value);
+}
+
+@function map_sizes($value:'md'){
+  @return map-get($font-sizes,$value);
+}
+
+
